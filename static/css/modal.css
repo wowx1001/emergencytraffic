@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#modal{
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    width: 1440px;
+    height: 650px;
+    background-color: white;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 12px 15px 0px rgba(0,0,0,0.1);
+    display:none;
+}
+#modal_close{
+    position: absolute;
+    right: 0;
+    padding-right: 5px;
+    font-size: 1.5em;
+}
+#modal_close:hover{
+    cursor:pointer;
+}
+.styled-table {
+    margin-top: 35px;
+    border-collapse: collapse;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.styled-table thead {
+    float: left;
+    width: 1423px;
+    text-align: left;
+}
+.styled-table thead tr{
+    background-color: #e44d12;
+    color: #ffffff;
+    width: 100%;
+    padding: 1.5em 0;
+    display: flex;
+    align-items: center;
+}
+.styled-table  tbody{overflow-y:auto; float:left; width:1440px; height:500px}
+.styled-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #e44d12;
+}
+.styled-table  td{width: 142.3px;}
+.styled-table thead tr th{
+    width: 142.3px;
+    padding: 0 0;
+}
