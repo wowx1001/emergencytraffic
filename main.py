@@ -8,7 +8,7 @@ import pymysql
 demo_db = pymysql.connect(
     user='root',
     passwd='1111',
-    host='127.0.0.1',
+    host='0.0.0.0',
     db='demo',
     charset='utf8'
 )
@@ -48,5 +48,5 @@ def save_csv():
     return response
 
 if __name__ == "__main__":
-    app.run(debug=True, threaded=True)
+    app.run(host="0.0.0.0",debug=True, threaded=True, port=5000)
 
