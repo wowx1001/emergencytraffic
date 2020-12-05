@@ -7,7 +7,7 @@ import pymysql
 
 demo_db = pymysql.connect(
     user='root',
-    passwd='tjrWkd2&',
+    passwd='1111',
     host='127.0.0.1',
     db='demo',
     charset='utf8'
