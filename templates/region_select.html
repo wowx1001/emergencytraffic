@@ -11,41 +11,55 @@
   <div id="select-wrapper">
   <form id="selform_contents">
     <div id="select-back">
-        조회하려는 조건을 선택하세요
+        
     </div>
-        <p>조회 날짜 : <input type="text" id="Date1" readonly="readonly">~<input type="text" id="Date2" readonly="readonly"></p>
-        <select id="time">
-          <option value="주간">주간</option>
-          <option value="야간">야간</option>
-        </select>
-        <select id="type">
-          <option value="사고">사고</option>
-          <option value="공사">공사</option>
-          <option value="정체">정체</option>
-          <option value="원활">원활</option>
-          <option value="기타">기타</option>
-        </select>
-        <select id="sido">
-          <option value="">시/도 선택</option>
-        </select>
-        <select id="sigugun">
-          <option value="">시/군/구 선택</option>
-        </select>
+        <p id="date-wrapper">조회 날짜<br>
+          <input type="text" id="Date1" readonly="readonly">~<input type="text" id="Date2" readonly="readonly"></p>
+        
+        <span id="time">
+          <span>
+            <label>주간 <input type="radio" name="dtnt" value="day" checked=""></label><br>
+            <label>야간 <input type="radio" name="dtnt" value="night"></label>
+          </span>
+          <span style="padding-left: 20px;">
+            <p>사고유형</p>
+            <select id="type">
+              <option value="사고">사고</option>
+              <option value="공사">공사</option>
+              <option value="정체">정체</option>
+              <option value="원활">원활</option>
+              <option value="기타">기타</option>
+            </select>
+          </span>
+        </span>
+        <span style="text-align:center; width: 100%;">
+          <select id="sido">
+            <option value="">시/도 선택</option>
+          </select>
+          <select id="sigugun">
+            <option value="">시/군/구 선택</option>
+          </select>
+        </span>
         <!--select id="dong">
           <option value="">읍/면/동 선택</option>
         </-select-->
         <input id="selectsubmitbtn" type="submit" value="입력" onclick="region_submit()"></input>
   </form>
   <span id="marker_btn_all">
-    <button id="item1" onclick="removing_resmarker();">
-      검색 마커 지우기
-    </button>
-    <button id="item2" onclick="removing_selmarker();">조회 지역 마커 지우기</button>
-    <button id="item3" onclick="removing_allmarker();">모든 마커 지우기</button>
-    <button id="item4">교통 정보 표시</button>
-    <button id="item5">데이터 조회 및 편집</button>
-    <button id="item6">빈 공간1</button>
+    <div id="rm-markerwrapper">
+      <button id="item1" onclick="removing_resmarker();">
+        검색 마커 지우기
+      </button>
+      <button id="item2" onclick="removing_selmarker();">조회 지역 마커 지우기</button>
+      <button id="item3" onclick="removing_allmarker();">모든 마커 지우기</button>
+    </div>
+    <div id="editfunc-wrapper">
+      <button id="item4">교통 정보 표시</button>
+      <button id="item5">데이터 조회 및 편집</button>
+    </div>
   </span>
+  <footer>
+  </footer>
 </div>
 </body>
 </html>
