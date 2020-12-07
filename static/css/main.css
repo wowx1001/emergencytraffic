@@ -5,7 +5,7 @@ html, body {
     padding: 0;
     font-family: 'GmarketSansLight';
 }
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family: 'Noto Sans KR', sans-serif;font-size:12px;}
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
 .map_wrap {display:flex;width:100%;height:100%;}
 #menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
@@ -82,7 +82,9 @@ html, body {
     box-shadow: 0px 12px 15px 0 rgba(0,0,0,0.2);
     align-items: center;
 }
-
+#select-wrapper input:hover,select:hover,button:hover{
+    cursor: pointer;
+}
 #sido, #sigugun{
     border: 1px solid #999;
     font-family: inherit;
@@ -91,8 +93,8 @@ html, body {
     -moz-appearance: none;
     appearance: none;
     margin-bottom: 1px;
-    width: 45%;
-    height: 3vh;
+    width: 38%;
+    height: 4vh;
 }
     
 #select-wrapper select::-ms-expand {
@@ -100,8 +102,8 @@ html, body {
 }
 
 #selectsubmitbtn{
-    padding: .8em .5em;
-    background-color: #ffbd59;
+    padding: .4em .2em;
+    background-color: #ff5757;
     font-family: inherit;
     border-radius: 5px;
     -webkit-appearance: none;
@@ -111,6 +113,9 @@ html, body {
     height:4em;
     border: none;
     margin-top: 30px;
+    color:white;
+    font-size: 14px;
+    box-shadow: 5px 5px lightcoral;
 }
 
 #selform_contents{
@@ -120,7 +125,10 @@ html, body {
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
-    flex: 0.32;
+    flex: 0.5;
+    background-color: #ff914dcc;
+    color:white;
+    box-shadow: 0px 4px 7px 0 rgba(0,0,0,0.16);
 }
 
 #select-back {
@@ -132,33 +140,44 @@ html, body {
 }
 
 #marker_btn_all{
+    border: 5px solid lightgray;
+    border-radius: 3px;
     margin-top: 75px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     flex: 0.3;
-    width: 90%;
+    width: 80%;
 }
 #marker_btn_all button{
     width:50%;
     border: none;
+    color:white;
+    font-size: 14px;
+}
+#marker_btn_all button:hover{
+filter: brightness(70%);
 }
 #marker_btn_all div{
     display: flex;
     flex-direction: row;
 }
-#marker_btn_all #editfunc-wrapper{
+#marker_btn_all #editfunc-wrapper,#marker_btn_all #rm-markerwrapper{
     flex-grow: 1;
 }
 
+#selectsubmitbtn:hover{
+    filter: brightness(70%);
+}
+
 #item1{background-color: #008037;}
-#item2{background-color: #ffde59;}
+#item2{background-color: #669a89;}
 #item3{background-color: #ff914d;}
 #item4{background-color: #004aad;}
 #item5{background-color: #ff5757;}
-#date-wrapper{text-align: center;}
-#Date1,#Date2{width:10vh;}
-#type{width: 100%;}
+#date-wrapper{text-align: center; font-size: 16px;}
+#Date1,#Date2{width:10vh; height: 2.3vh;}
+#type{width: 100%; height: 2.8vh;}
 #time{display: flex; flex-direction: row;}
 .ui-datepicker{ z-index: 9 !important;}
 footer{
@@ -167,5 +186,5 @@ footer{
     height: 50px;
     width: 19%;
     text-align: center;
-    border-top: 5px solid #008037;
+    border-top: 5px solid #ff5757;
 }

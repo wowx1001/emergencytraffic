@@ -101,7 +101,7 @@ function placesSearchCB(data, status, pagination) {
 
 // 검색 결과 목록과 마커를 표출하는 함수
 function displayPlaces(places) {
-
+    infowindow.close();
     var listEl = document.getElementById('placesList'), 
     menuEl = document.getElementById('menu_wrap'),
     fragment = document.createDocumentFragment(), 
@@ -247,10 +247,10 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수
 // 인포윈도우에 장소명을 표시
 function displayInfowindow(marker, title) {
-    var content = '<form id="winfo" style="padding:5px;" method="GET">' +
+    var content = '<form id="winfo" style="padding:5px; width:100%;" method="GET">' +
                     '<div style="padding:5px;z-index:1;">' + title + '</div>'+
                     '<div>접수 내용을 입력해주세요.</div>'+
-                    '<input id="reception_contents" type="text"></input>'+
+                    '<input id="reception_contents" style="width: 110px;" type="text"></input>'+
                     '<input type="submit" value="입력" onclick="ajax_submit()"></input>'+
                     '<input style="display:none;" id="geo_name" type="text"></input>'+
                     '<input style="display:none;" id="loc_x" type="text" value=""></input>'+

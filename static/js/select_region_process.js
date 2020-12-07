@@ -79,13 +79,17 @@ function region_submit(){
   var geo_sido = $('#sido').val();
   if($('#sigugun').val().length>2){geo_sigugun = $('#sigugun').val().substring(0,$('#sigugun').val().length-1);}
   else{geo_sigugun = $('#sigugun').val();}
-  
+  var rect_time = $('#jugan').is(':checked')? "and reception_time between '06:00' and '21:59'":"and reception_time between '22:00' and '05:59'";
+  if ($('#Date1').val()=="" && $('#Date2').val()==""){rect_date = ';';}
+  else{rect_date = "and reception_date between '"+$('#Date1').val()+"' and '"+$('#Date2').val()+"';"};
   //var geo_dong = $('#dong').val();
 
   const rpostdata = {
              accid_type:accid_type,
              sido:geo_sido,
-             sigugun:geo_sigugun/*,
+             sigugun:geo_sigugun,
+             reception_time:rect_time,
+             reception_date:rect_date/*,
              dong:geo_dong*/
   }
   $.ajax({
@@ -155,8 +159,12 @@ function res_displayInfowindow(marker,value_type,value_date,value_time,value_loc
 }
 
 function res_addMarker(position) {
+  var imageSize = new kakao.maps.Size(24, 35);
+  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+  var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
   marker = new kakao.maps.Marker({
-    position: position
+    position: position,
+    image : markerImage
   });
     
   marker.setMap(map); // 지도 위에 마커를 표출합니다

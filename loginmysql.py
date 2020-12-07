@@ -18,11 +18,16 @@ def select_data(regs, cs):
     if regs['sigugun']=="":
         sql = """select accid_type,reception_date,reception_time,accident_contents,region,reception_viewpoint,from_direction,to_direction,lane,lat,lng 
         from newtest,hangjeong 
-        where (region=left(hangjeong.sigungu,2)) and sido='%s' and accid_type='%s';""" % (str(regs['sido']), str(regs['accid_type']))
+        where (region=left(hangjeong.sigungu,2)) and sido='%s' and accid_type='%s'""" % (str(regs['sido']), str(regs['accid_type']))
+        sql += (str(regs['reception_time']))
+        sql += (str(regs['reception_date']))
     else:
         sql = """select accid_type,reception_date,reception_time,accident_contents,region,reception_viewpoint,from_direction,to_direction,lane,lat,lng 
         from newtest 
-        where region='%s' and accid_type='%s';"""%(str(regs['sigugun']),str(regs['accid_type']))
+        where region='%s' and accid_type='%s'"""%(str(regs['sigugun']),str(regs['accid_type']))
+        sql += (str(regs['reception_time']))
+        sql += (str(regs['reception_date']))
+    print(sql)
     cs.execute(sql)
     result = json.dumps(cs.fetchall(), cls=DjangoJSONEncoder, ensure_ascii=False)
     return result
