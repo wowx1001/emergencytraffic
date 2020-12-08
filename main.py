@@ -24,9 +24,9 @@ def index():
 # 데이터를 입력하는 요청을 받는 부분
 @app.route('/req', methods=['POST'])
 def req():
-    serve_data = request.get_json()
+    data = request.get_json()
 
-    data = loginmysql.insert_data(serve_data, demo_db, cursor)
+    loginmysql.insert_data(data, demo_db, cursor)
     return flask_jsonpify.jsonify(result=data)
 
 # 데이터를 조회하는 요청을 받는 부분
