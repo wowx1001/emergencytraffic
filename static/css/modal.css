@@ -46,16 +46,14 @@
     display: flex;
     align-items: center;
 }
-.styled-table  tbody{overflow-y:auto; float:left; width:1440px; height:500px}
+.styled-table  tbody{overflow-y:auto; float:left; width:1440px; height:500px; border-bottom: 2px solid #e44d12;}
 .styled-table tbody tr{
     border-bottom: 1px solid #dddddd;
 }
 .styled-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #e44d12;
-}
+
 .styled-table  td{width: 142.3px;}
 .styled-table thead tr th{
     width: 142.3px;

@@ -3,9 +3,11 @@ from django.core.serializers.json import DjangoJSONEncoder
 import pandas as pd
 import time
 
+# 데이터 입력 요청시 DB에 데이터를 삽입하는 부분
 def insert_data(reqs,db,cs):
-    sql = """insert into inp_table(reception_date, reception_time, region, accident_contents, lat, lng) 
-    values(curdate() ,'%s','%s','%s', %f, %f);"""%(
+    sql = """insert into inp_table(accid_type, reception_date, reception_time, region, accident_contents, lat, lng) 
+    values('%s',curdate() ,'%s','%s','%s', %f, %f);"""%(
+        str(reqs['accid_type']),
         str(time.strftime('%H:%M')),
         str(reqs['loc']),
         str(reqs['accident_contents']),
@@ -14,6 +16,7 @@ def insert_data(reqs,db,cs):
     cs.execute(sql)
     db.commit()
 
+# 데이터 조회 요청시 조회 테이블의 데이터를 반환
 def select_data(regs, cs):
     if regs['sigugun']=="":
         sql = """select accid_type,reception_date,reception_time,accident_contents,region,reception_viewpoint,from_direction,to_direction,lane,lat,lng 
@@ -32,6 +35,15 @@ def select_data(regs, cs):
     result = json.dumps(cs.fetchall(), cls=DjangoJSONEncoder, ensure_ascii=False)
     return result
 
+# 입력 데이터 조회 요청시 입력 데이터 테이블의 데이터를 반환
+def inp_select_data(cs):
+    sql = "select * from inp_table;"
+    cs.execute(sql)
+    result = json.dumps(cs.fetchall(), cls=DjangoJSONEncoder, ensure_ascii=False)
+
+    return result
+
+# 저장 아이콘 클릭 시 데이터프레임의 형태로 반환
 def download_data(cs):
     sql ="""select * from newtest;"""
     cs.execute(sql)

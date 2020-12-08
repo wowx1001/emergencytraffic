@@ -8,6 +8,8 @@
 </head>
 <body>
 <div id="modal">
+    <button id="modal_select_btn" style="position: absolute; font-size:22px">조회 테이블</button>
+    <button id="modal_input_btn" style="margin-left:131px;position: absolute; font-size:22px;">입력 테이블</button>
     <div id="modal_close">X</div>
     <table class="styled-table">
         <thead>
@@ -49,7 +51,7 @@
     </div>
     <ul id="icon-menu">
         <li>
-            <form method="get" onsubmit="save_file()">
+            <form method="get" onsubmit="request_file()">
                 <button type="submit">
                     <img src="{{url_for('static', filename='css/image/save-icon.png')}}">
                 </button>

@@ -28,7 +28,7 @@ var zoomControl = new kakao.maps.ZoomControl();
 var geocoder = new kakao.maps.services.Geocoder();
 
 
-
+// 지도 클릭시 마커 생성 이벤트 추가
 kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
     infowindow.close();
     var latlng = mouseEvent.latLng; 
@@ -37,12 +37,15 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     click_marker.setMap(map);
 });
 
+// 지도에 클릭으로인한 마커를 우클릭시 마커 삭제 이벤트 추가
 kakao.maps.event.addListener(click_marker, 'mousedown', function(){
     if (event.button==2){ 
         click_marker.setMap(null);
         infowindow.close();
     }
 });
+
+// 클릭이벤트로 생긴 마커 위치에 따라 행정동(지역명) 자동 기입 (보이지 않음)
 kakao.maps.event.addListener(click_marker, 'click', function(){
     displayInfowindow(click_marker, "");
     var callback = function(result, status) {
@@ -247,11 +250,16 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수
 // 인포윈도우에 장소명을 표시
 function displayInfowindow(marker, title) {
-    var content = '<form id="winfo" style="padding:5px; width:100%;" method="GET">' +
+    var content = '<form id="winfo" style="padding:5px; width:100%; height: 100%;" method="GET">' +
                     '<div style="padding:5px;z-index:1;">' + title + '</div>'+
                     '<div>접수 내용을 입력해주세요.</div>'+
-                    '<input id="reception_contents" style="width: 110px;" type="text"></input>'+
-                    '<input type="submit" value="입력" onclick="ajax_submit()"></input>'+
+                    '<select id="inp_type" style="position:absolute; width:50px;"><option value="사고">사고</option>'+
+                    '<option value="공사">공사</option>'+
+                    '<option value="정체">정체</option>'+
+                    '<option value="원활">원활</option>'+
+                    '<option value="기타">기타</option></select>'+
+                    '<input id="reception_contents" style="width: 110px;margin-left: 50px;" type="text"></input>'+
+                    '<input type="submit" value="저장" onclick="input_submit()"></input>'+
                     '<input style="display:none;" id="geo_name" type="text"></input>'+
                     '<input style="display:none;" id="loc_x" type="text" value=""></input>'+
                     '<input style="display:none;" id="loc_y" type="text" value=""></input>'+
@@ -267,6 +275,7 @@ function removeAllChildNods(el) {
     }
 }
 
+// 입력폼에 위치 정보(위경도)를 자동으로 기입하는 부분(보이지 않음)
 function write_loc_xy(ev,loc,z1,z2){
     locinfo = document.getElementById("geo_name");
     xinfo = document.getElementById(z1);
@@ -276,13 +285,16 @@ function write_loc_xy(ev,loc,z1,z2){
     yinfo.value = ev.getLng();
 }
 
-function ajax_submit(){
+// 입력폼의 정보를 서버 DB에 저장 요청
+function input_submit(){
     var reception_contents = $('#reception_contents').val();
     var geo_name = $('#geo_name').val();
     var x_data = $('#loc_x').val();
     var y_data = $('#loc_y').val();
+    var a_type = $('#inp_type').val();
     
     const getdata = {
+               accid_type: a_type,
                accident_contents:reception_contents,
                loc:geo_name,
                lat:parseFloat(x_data),
@@ -308,7 +320,8 @@ function ajax_submit(){
     event.preventDefault();
 }
 
-function save_file(){
+// 서버에 CSV 파일 요청
+function request_file(){
     $.ajax({
         type: 'POST',
         url: '/save_csv',
@@ -323,7 +336,7 @@ function save_file(){
     })
     event.preventDefault();
 }
-
+// 서버에게 받은 csv파일 처리
 function downloadCSV(down_data){
     a=down_data
 
@@ -338,6 +351,7 @@ function downloadCSV(down_data){
     document.body.removeChild(downloadLink);
 }
 
+// 데이터 조회 창닫기 이벤트
 $(document).on('click','#modal_close',function(){
     $('#modal').hide();
 })

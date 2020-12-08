@@ -1,7 +1,10 @@
 
 var select_markers = [];
 var visibletraffic = false;
+var modal_select_btn = document.getElementById('modal_select_btn');
+var modal_input_btn = document.getElementById('modal_input_btn');
 
+// 조회 날짜 달력 선택창
 $(function() {
   $.datepicker.setDefaults($.datepicker.regional['ko']); 
 
@@ -21,6 +24,7 @@ $(function() {
   });
 });
 
+// 교통 정보 표시 버튼 클릭 이벤트
 $(document).on('click','#item4',function(){
   if (visibletraffic == true ){
     visibletraffic = false;
@@ -32,10 +36,12 @@ $(document).on('click','#item4',function(){
   }
 })
 
+// 데이터 조회 모달창 보이기
 $(document).on('click','#item5',function(){
   $('#modal').css('display','flex');
 })
 
+// 조회 지역 행정동 목록 로드
 $(document).ready(function(){
     //sido option 추가
     $.each(hangjungdong, function(idx, code){
@@ -74,6 +80,7 @@ function fn_option(code, name){
 }
 });
 
+// 입력 폼에 따라 조회처리를 요청하는 부분 
 function region_submit(){
   var accid_type = $('#type').val();
   var geo_sido = $('#sido').val();
@@ -83,7 +90,6 @@ function region_submit(){
   if ($('#Date1').val()=="" && $('#Date2').val()==""){rect_date = ';';}
   else{rect_date = "and reception_date between '"+$('#Date1').val()+"' and '"+$('#Date2').val()+"';"};
   //var geo_dong = $('#dong').val();
-
   const rpostdata = {
              accid_type:accid_type,
              sido:geo_sido,
@@ -99,10 +105,12 @@ function region_submit(){
       dataType : 'json',
       contentType: "application/json",
       success: function(data){
-        if(data.length>0){
+        if(data['0'].length>0){
           alert(geo_sido+geo_sigugun+" 데이터 조회 완료");
-          draw_marker(data);
-          lookuptable(data);
+          draw_marker(data['0']);
+          
+          modal_select_btn.onclick = function(){lookuptable(data['0'])};
+          modal_input_btn.onclick = function(){lookuptable(data['1'])};
         }else{
           alert("조회 결과가 없습니다");
         }
@@ -115,6 +123,7 @@ function region_submit(){
   event.preventDefault();
 }
 
+// 조회된 데이터에 따라 마커 표시
 function draw_marker(select_result_data){
   bounds = new kakao.maps.LatLngBounds();
 
@@ -148,6 +157,7 @@ function draw_marker(select_result_data){
   map.setBounds(bounds);
 }
 
+// 조회된 데이터의 인포윈도우 창 추가
 function res_displayInfowindow(marker,value_type,value_date,value_time,value_loc,value_lane) {
   var content = '<div style="width:230px;"><div> 유형 : '+value_type+'</div>'+
   '<div> 접수 날짜 : '+value_date+'</div>'+
@@ -158,6 +168,7 @@ function res_displayInfowindow(marker,value_type,value_date,value_time,value_loc
   infowindow.open(map, marker);
 }
 
+// 조회된 데이터의 마커 추가
 function res_addMarker(position) {
   var imageSize = new kakao.maps.Size(24, 35);
   var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
@@ -173,6 +184,7 @@ function res_addMarker(position) {
   return marker;
 }
 
+// 마커 지우기 버튼 클릭 이벤트1
 function removing_selmarker(){
   if(confirm("조회 지역 마커를 모두 지우시겠습니까?")){
     removeMarker(select_markers);
@@ -181,6 +193,7 @@ function removing_selmarker(){
   }
 }
 
+// 마커 지우기 버튼 클릭 이벤트2
 function removing_resmarker(){
   if(confirm("검색 마커를 모두 지우시겠습니까?")){
     removeMarker(markers);
@@ -194,6 +207,7 @@ function removing_resmarker(){
   }
 }
 
+// 마커 지우기 버튼 클릭 이벤트3
 function removing_allmarker(){
   if(confirm("모든 마커를 지우시겠습니까?")){
     removeMarker(select_markers);
@@ -208,6 +222,7 @@ function removing_allmarker(){
   } 
 }
 
+// 데이터 조회 모달창에 데이터 표기
 function lookuptable(jsontb){
   $('.styled-table > tbody').empty();
   $.each(jsontb, function(idx, code){
