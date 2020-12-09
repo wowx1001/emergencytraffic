@@ -108,7 +108,7 @@ function region_submit(){
         if(data['0'].length>0){
           alert(geo_sido+geo_sigugun+" 데이터 조회 완료");
           draw_marker(data['0']);
-          
+          console.log(data['0']);
           modal_select_btn.onclick = function(){lookuptable(data['0'])};
           modal_input_btn.onclick = function(){lookuptable(data['1'])};
         }else{
@@ -228,7 +228,17 @@ function lookuptable(jsontb){
   $.each(jsontb, function(idx, code){
       innerHtml = "";
       innerHtml += "<tr>";
-      $.each(code, function(idx, col){innerHtml += "<td>"+col+"</td>"});
+      innerHtml += "<td>"+code.accid_type+"</td>";
+      innerHtml += "<td>"+code.reception_date+"</td>";
+      innerHtml += "<td>"+code.reception_time+"</td>";
+      innerHtml += "<td>"+code.accident_contents+"</td>";
+      innerHtml += "<td>"+code.region+"</td>";
+      innerHtml += "<td>"+code.reception_viewpoint+"</td>";
+      innerHtml += "<td>"+code.from_direction+"</td>";
+      innerHtml += "<td>"+code.to_direction+"</td>";
+      innerHtml += "<td>"+code.lane+"</td>";
+      innerHtml += "<td>"+code.lat+"</td>";
+      innerHtml += "<td>"+code.lng+"</td>";
       innerHtml += "</tr>";
       $(".styled-table > tbody:last").append(innerHtml);
   });
