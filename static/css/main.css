@@ -85,39 +85,10 @@ html, body {
 #select-wrapper input:hover,select:hover,button:hover{
     cursor: pointer;
 }
-#sido, #sigugun{
-    border: 1px solid #999;
-    font-family: inherit;
-    border-radius: 0px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-bottom: 1px;
-    width: 38%;
-    height: 4vh;
-}
     
 #select-wrapper select::-ms-expand {
     display: none;
 }
-
-#selectsubmitbtn{
-    padding: .4em .2em;
-    background-color: #ff5757;
-    font-family: inherit;
-    border-radius: 5px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width:20vh;
-    height:4em;
-    border: none;
-    margin-top: 30px;
-    color:white;
-    font-size: 14px;
-    box-shadow: 5px 5px lightcoral;
-}
-
 #selform_contents{
     display: flex;
     flex-direction: column;
@@ -129,7 +100,6 @@ html, body {
     background-color: #f5f5f5cc;
     box-shadow: 0px 4px 7px 0 rgba(0,0,0,0.16);
 }
-
 #select-back {
     display: flex;
     align-items: center;
@@ -137,26 +107,10 @@ html, body {
     width: 90%;
     height: 45px;
 }
-
-#marker_btn_all{
-    border: 5px solid lightgray;
-    border-radius: 3px;
-    margin-top: 75px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    flex: 0.3;
-    width: 80%;
-}
-#marker_btn_all button{
-    width:50%;
-    border: none;
-    color:white;
-    font-size: 14px;
-}
 #marker_btn_all button:hover{
-filter: brightness(70%);
+    filter: brightness(70%);
 }
+
 #marker_btn_all div{
     display: flex;
     flex-direction: row;
@@ -175,16 +129,269 @@ filter: brightness(70%);
 #item3{background-color: #ff914d;}
 #item4{background-color: #004aad;}
 #item5{background-color: #ff5757;}
-#date-wrapper{text-align: center; font-size: 16px;}
-#Date1,#Date2{width:10vh; height: 2.3vh;}
-#type{width: 100%; height: 2.8vh;}
 #time{display: flex; flex-direction: row;}
 .ui-datepicker{ z-index: 9 !important;}
-footer{
-    position: fixed;
-    bottom: 0;
-    height: 50px;
-    width: 19%;
-    text-align: center;
-    border-top: 5px solid #ff5757;
+@media (max-width: 767px){
+    #selectsubmitbtn{
+        padding: .3em .2em;
+        background-color: #ff5757;
+        font-family: inherit;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width:20vh;
+        height:2.5em;
+        border: none;
+        margin-top: 30px;
+        color:white;
+        font-size: 12px;
+        box-shadow: 5px 5px lightcoral;
+    }
+    
+    #sido, #sigugun{
+        border: 1px solid #999;
+        font-family: inherit;
+        border-radius: 0px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-bottom: 1px;
+        width: 38%;
+        height: 4vh;
+        font-size: 10px;
+    }
+    
+    #marker_btn_all{
+        border: 5px solid lightgray;
+        border-radius: 3px;
+        margin-top: 75px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex: 0.3;
+        width: 90%;
+        font-size: 10px;
+    }
+    #marker_btn_all button{
+        width:50%;
+        border: none;
+        color:white;
+        font-size: 10px;
+    }
+    #marker_btn_all button svg{
+        width:26px;
+        height:26px;
+    }
+
+
+    #date-wrapper{text-align: center; font-size: 14px;}
+    #Date1,#Date2{width:10vh; height: 2.3vh;}
+    #type{width: 100%; height: 3.8vh;}
+    footer{
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 19%;
+        text-align: center;
+        border-top: 5px solid #ff5757;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    #selectsubmitbtn{
+        padding: .3em .2em;
+        background-color: #ff5757;
+        font-family: inherit;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width:20vh;
+        height:2.5em;
+        border: none;
+        margin-top: 30px;
+        color:white;
+        font-size: 12px;
+        box-shadow: 5px 5px lightcoral;
+    }
+    
+    #sido, #sigugun{
+        border: 1px solid #999;
+        font-family: inherit;
+        border-radius: 0px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-bottom: 1px;
+        width: 38%;
+        height: 4vh;
+        font-size: 10px;
+    }
+    
+    #marker_btn_all{
+        border: 5px solid lightgray;
+        border-radius: 3px;
+        margin-top: 75px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex: 0.3;
+        width: 90%;
+        font-size: 10px;
+    }
+    #marker_btn_all button{
+        width:50%;
+        border: none;
+        color:white;
+        font-size: 10px;
+    }
+    #marker_btn_all button svg{
+        width:26px;
+        height:26px;
+    }
+
+
+    #date-wrapper{text-align: center; font-size: 14px;}
+    #Date1,#Date2{width:10vh; height: 2.3vh;}
+    #type{width: 100%; height: 3.8vh;}
+    footer{
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 19%;
+        text-align: center;
+        border-top: 5px solid #ff5757;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #selectsubmitbtn{
+        padding: .4em .2em;
+        background-color: #ff5757;
+        font-family: inherit;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width:20vh;
+        height:2.5em;
+        border: none;
+        margin-top: 30px;
+        color:white;
+        font-size: 14px;
+        box-shadow: 5px 5px lightcoral;
+    }
+    
+
+    
+    #marker_btn_all{
+        border: 5px solid lightgray;
+        border-radius: 3px;
+        margin-top: 75px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex: 0.3;
+        width: 90%;
+        font-size: 12px;
+    }
+    #marker_btn_all button{
+        width:50%;
+        border: none;
+        color:white;
+        font-size: 12px;
+    }
+    #marker_btn_all button svg{
+        width:30px;
+        height:30px;
+    }
+
+    #sido, #sigugun{
+        border: 1px solid #999;
+        font-family: inherit;
+        border-radius: 0px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-bottom: 1px;
+        width: 38%;
+        height: 4vh;
+        font-size: 11px;
+    }
+    #time span>*{
+        font-size: 13px;
+    }
+    #date-wrapper{text-align: center; font-size: 14px;}
+    #Date1,#Date2{width:10vh; height: 2.3vh;}
+    #type{width: 100%; height: 3.8vh;}
+    footer{
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 19%;
+        text-align: center;
+        border-top: 5px solid #ff5757;
+    }
+}
+
+@media (min-width: 1200px) {
+    #selectsubmitbtn{
+        padding: .4em .2em;
+        background-color: #ff5757;
+        font-family: inherit;
+        border-radius: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width:20vh;
+        height:4em;
+        border: none;
+        margin-top: 30px;
+        color:white;
+        font-size: 14px;
+        box-shadow: 5px 5px lightcoral;
+    }
+    
+    
+    #marker_btn_all{
+        border: 5px solid lightgray;
+        border-radius: 3px;
+        margin-top: 75px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        flex: 0.3;
+        width: 80%;
+    }
+    #marker_btn_all button{
+        width:50%;
+        border: none;
+        color:white;
+        font-size: 14px;
+    }
+    
+    #sido, #sigugun{
+        border: 1px solid #999;
+        font-family: inherit;
+        border-radius: 0px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-bottom: 1px;
+        width: 38%;
+        height: 4vh;
+        font-size: 14px;
+    }
+    #date-wrapper{text-align: center; font-size: 16px;}
+    #Date1,#Date2{width:10vh; height: 2.3vh;}
+    #type{width: 100%; height: 3.8vh;}
+    footer{
+        position: fixed;
+        bottom: 0;
+        height: 50px;
+        width: 19%;
+        text-align: center;
+        border-top: 5px solid #ff5757;
+    }
 }
