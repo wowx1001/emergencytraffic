@@ -3,7 +3,6 @@ from flask import Flask,request, render_template,Response
 import flask_jsonpify
 import loginmysql
 import pymysql
-import json
 
 # db 접속정보 및 접속
 demo_db = pymysql.connect(
@@ -33,9 +32,9 @@ def req():
 @app.route('/region_inquiry', methods=['POST'])
 def region_inquiry():
     data = request.get_json()
-    inqreq = json.loads(loginmysql.select_data(data, cursor))
-    allinp = json.loads(loginmysql.inp_select_data(cursor))
-    return {'0':inqreq ,'1':allinp}
+    inqreq = loginmysql.select_data(data, cursor)
+
+    return inqreq
 
 # 데이터를 저장하는 요청을 받는 부분
 @app.route('/save_csv', methods=['POST'])
@@ -50,6 +49,11 @@ def save_csv():
     )
     response.headers["Content-Disposition"] = "attachment; filename=post_export.csv"
     return response
+
+@app.route('/refresh_input', methods=['POST'])
+def refresh_input():
+    allinp = loginmysql.inp_select_data(cursor)
+    return allinp
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True, threaded=True, port=5000)

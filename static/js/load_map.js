@@ -354,4 +354,5 @@ function downloadCSV(down_data){
 // 데이터 조회 창닫기 이벤트
 $(document).on('click','#modal_close',function(){
     $('#modal').hide();
-})
+});
+

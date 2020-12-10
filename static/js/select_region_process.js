@@ -105,12 +105,10 @@ function region_submit(){
       dataType : 'json',
       contentType: "application/json",
       success: function(data){
-        if(data['0'].length>0){
+        if(data.length>0){
           alert(geo_sido+geo_sigugun+" 데이터 조회 완료");
-          draw_marker(data['0']);
-          console.log(data['0']);
-          modal_select_btn.onclick = function(){lookuptable(data['0'])};
-          modal_input_btn.onclick = function(){lookuptable(data['1'])};
+          draw_marker(data);
+          modal_select_btn.onclick = function(){lookuptable(data)};
         }else{
           alert("조회 결과가 없습니다");
         }
@@ -243,3 +241,22 @@ function lookuptable(jsontb){
       $(".styled-table > tbody:last").append(innerHtml);
   });
 }
+
+// 입력한 데이터 조회 새로고침
+function inp_refresh(){
+  $.ajax({
+    type: 'POST',
+    url: '/refresh_input',
+    dataType : 'json',
+    contentType: "application/json",
+    success: function(refereshdata){
+      if(refereshdata.length>0){
+        lookuptable(refereshdata);
+      }
+    },
+    error: function(status, error){
+        console.log(status);
+    }
+  })
+}
+
