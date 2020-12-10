@@ -4,7 +4,7 @@ import flask_jsonpify
 import loginmysql
 import pymysql
 
-# db 접속정보 및 접속
+# db 접속정보 및 접속(자신의 DB정보에 맞게 수정되어야 함)
 demo_db = pymysql.connect(
     user='root',
     passwd='1111',
