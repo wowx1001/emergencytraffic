@@ -16,7 +16,9 @@
 ### ① python 또는 conda, mysql 설치
 ### ② 파이썬 파일 실행을 위해 요구된 라이브러리를 설치(requirements.txt에 정리되어있음) 명령어 : pip install -r 경로/requirements.txt
 ### ③ mysql 실행 뒤 콘솔 환경의 경우 source '경로/create.sql' 입력
-### ④ main.py의 host 부분을 자신의 고정 ip에 맞게 수정한 뒤 main.py을 실행
+### ④ https://developers.kakao.com/ -> 내 애플리케이션 -> 플랫폼 에서 애플리케이션을 추가하고 맨 아래에서 사이트 도메인에 자신의 아이피 주소와 포트를 추가.(ex.http://127.0.0.1:5000)
+### ⑤ api 키 발급후 templates/main.html에 api키를 수정해야함
+### ⑥ main.py의 host 부분을 자신의 고정 ip에 맞게 수정한 뒤 main.py을 실행
 #
 ## 4. 실행 화면
 ### (홈)초기화면<br><img src="screenshot/초기화면.png"></img>
