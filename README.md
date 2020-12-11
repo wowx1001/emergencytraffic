@@ -2,7 +2,7 @@
 
 
 ## 1. 개발 환경 구성
-- python3, mysql(or mariadb), 웹 서버(무료 아마존 ec2를 사용하였음)
+- python3(flask 가상환경), mysql(or mariadb), 웹 서버(무료 아마존 ec2를 사용하였음)
 #
 ## 2. 파일 구성
 > 1) main.py : 서버 구동을 위한 파일
