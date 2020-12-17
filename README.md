@@ -1,5 +1,8 @@
 # 도로교통공단 인턴 과제 긴급교통정보 웹페이지
 
+## 개요
+* 사고, 공사, 행사 등과 관련된 긴급 교통정보를 사용자가 입력하여 DB에 저장하여 지역 본부별로 데이터를 확보 또는 필요한 정보를 조회하기위해 구현된 웹 서버 구현 프로젝트.
+
 
 ## 1. 개발 환경 구성
 - python3(flask 가상환경), mysql(or mariadb), 웹 서버(무료 아마존 ec2를 사용하였음)
@@ -13,12 +16,12 @@
 > 6) requirements.txt : 파이썬 필요 라이브러리 정리 목록  
 #
 ## 3. 서버 실행 단계
-### ① python 또는 conda, mysql 설치
-### ② 파이썬 파일 실행을 위해 요구된 라이브러리를 설치(requirements.txt에 정리되어있음) 명령어 : pip install -r 경로/requirements.txt
-### ③ mysql 실행 뒤 콘솔 환경의 경우 source '경로/create.sql' 입력
-### ④ https://apis.map.kakao.com/ 에서 카카오 맵 api 키 발급후 templates/main.html에 api키를 수정
-### ⑤ https://developers.kakao.com/ -> 내 애플리케이션 -> 플랫폼 에서 애플리케이션을 추가하고 맨 아래에서 사이트 도메인에 자신의 아이피 주소와 포트를 추가.(ex.http://127.0.0.1:5000)
-### ⑥ main.py의 host 부분을 자신의 고정 ip에 맞게 수정한 뒤 main.py을 실행
+### - ① python 또는 conda, mysql 설치
+### - ② 파이썬 파일 실행을 위해 요구된 라이브러리를 설치(requirements.txt에 정리되어있음) 명령어 : pip install -r 경로/requirements.txt
+### - ③ mysql 실행 뒤 콘솔 환경의 경우 source '경로/create.sql' 입력
+### - ④ https://apis.map.kakao.com/ 에서 카카오 맵 api 키 발급후 templates/main.html에 api키를 수정
+### - ⑤ https://developers.kakao.com/ -> 내 애플리케이션 -> 플랫폼 에서 애플리케이션을 추가하고 맨 아래에서 사이트 도메인에 자신의 아이피 주소와 포트를 추가.(ex.http://127.0.0.1:5000)
+### - ⑥ main.py의 host 부분을 자신의 고정 ip에 맞게 수정한 뒤 main.py을 실행
 #
 ## 4. 실행 화면
 ### (홈)초기화면<br><img src="screenshot/초기화면.png"></img>
