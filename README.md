@@ -18,13 +18,16 @@
 > 5) createdb.sql : DB 초기 세팅을 위해 스키마와 테이블을 생성하는 sql
 > 6) requirements.txt : 파이썬 필요 라이브러리 정리 목록  
 #
-## 3. 서버 실행 단계
-### ① python 또는 conda, mysql 설치
-### ② 파이썬 파일 실행을 위해 요구된 라이브러리를 설치(requirements.txt에 정리되어있음) 명령어 : pip install -r 경로/requirements.txt
-### ③ mysql 실행 뒤 콘솔 환경의 경우 source '경로/create.sql' 입력
-### ④ https://apis.map.kakao.com/ 에서 카카오 맵 api 키 발급후 templates/main.html에 api키를 수정
-### ⑤ https://developers.kakao.com/ -> 내 애플리케이션 -> 플랫폼 에서 애플리케이션을 추가하고 맨 아래에서 사이트 도메인에 자신의 아이피 주소와 포트를 추가.(ex.http://127.0.0.1:5000)
-### ⑥ main.py의 host 부분을 자신의 고정 ip에 맞게 수정한 뒤 main.py을 실행
+## 3. 서버 실행 단계(아마존 ec2를 통한 구축방법)
+### ① 클라우드 서버 컴퓨터에 python/conda, mysql, git 설치
+##### * _구글 검색 : AWS EC2에 플라스크 클라우드 웹 서버 구축하기 / git 설치 명령어 : sudo apt install git_
+### ② git 설치 후 명령어 타이핑 / _ 명령어 : git clone https://github.com/wowx1001/emergencytraffic _
+### ③ requirements.txt를 통해 요구된 라이브러리를 설치 _ cmd 명령어 : pip install -r 경로/requirements.txt _
+### ④ mysql 실행 뒤 콘솔 환경의 경우 source '경로/create.sql' 입력
+### ⑤ https://apis.map.kakao.com/ 에서 카카오 맵 api 키 발급후 templates/main.html에 api키를 수정
+### ⑥ https://developers.kakao.com/ -> 내 애플리케이션 -> 플랫폼 Web 플랫폼 등록 및 Web 사이트 도메인에 아마존 ec2 ipv4 주소와 포트를 추가.(ex.http://127.0.0.1:5000)
+### ⑦ main.py의 host 부분을 자신의 고정 ip에 맞게 수정한 뒤 main.py을 실행 
+#### _[클라우드 환경일 경우 host는 0.0.0.0으로 둔다]_
 #
 ## 4. 실행 화면
 ### (홈)초기화면<br><img src="screenshot/초기화면.png"></img>
