@@ -29,8 +29,8 @@
 #### &nbsp;&nbsp;&nbsp;&nbsp; (4) mysql 실행 뒤 콘솔 환경의 경우 source '경로/create.sql' 입력  
 #### &nbsp;&nbsp;&nbsp;&nbsp; (5) https://apis.map.kakao.com/ 에서 카카오 맵 api 키 발급후 templates/main.html에 api키를 수정  
 #### &nbsp;&nbsp;&nbsp;&nbsp; (6) https://developers.kakao.com/ -> 내 애플리케이션 -> 플랫폼 Web 플랫폼 등록 및 Web 사이트 도메인에 아마존 ec2 ipv4 주소와 포트를 추가.(ex.http://127.0.0.1:5000)  
-### &nbsp;&nbsp;&nbsp;&nbsp; (7) main.py의 host 부분을 자신의 고정 ip에 맞게 수정  _[클라우드 환경일 경우 host는 0.0.0.0으로 둔다]_  
-### &nbsp;&nbsp;&nbsp;&nbsp; (8) root 디렉토리에서 flask source/bin/activate 명령어 타이핑 후 main.py가 있는 폴더에서 python3 main 타이핑  
+#### &nbsp;&nbsp;&nbsp;&nbsp; (7) main.py의 host 부분을 자신의 고정 ip에 맞게 수정  _[클라우드 환경일 경우 host="0.0.0.0"]_  
+#### &nbsp;&nbsp;&nbsp;&nbsp; (8) root 디렉토리에서 flask source/bin/activate 명령어 타이핑 후 main.py가 있는 폴더에서 python3 main 타이핑  
 
 #
 ## 4. 실행 화면
